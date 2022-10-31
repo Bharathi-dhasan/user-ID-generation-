@@ -1,0 +1,66 @@
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+        String lan="",sml="",st="";
+        int q=0;
+        String fn=s.nextLine();
+        String ln=s.nextLine();
+        int t=fn.length();
+        String pin=s.nextLine();
+        int n=s.nextInt();
+        char a[]=fn.toCharArray();
+        char b[]=ln.toCharArray();
+        if(fn.length()>ln.length())
+        {
+            lan=fn;
+            sml=ln;
+           
+        }
+        else if(fn.length()<ln.length())
+        {
+            lan=ln;
+            sml=fn;
+          
+        }
+        else if(fn.length()==ln.length())
+        {
+            for(int i=0;i<fn.length();i++)
+            {
+                if(a[i]==b[i])
+                {
+                    q+=1;
+                }
+            }
+            if(a[q]>b[q]){
+                lan=fn;
+                sml=ln;
+            }
+            else{
+                lan=ln;
+                sml=fn;
+            }
+ 
+        }
+        System.out.println("largest name : "+lan);
+        System.out.println("Smallest name : "+sml);
+        String userid=lan.charAt(0)+sml+pin.charAt(n-1)+pin.charAt(pin.length()-n);
+        //System.out.println(userid);
+       for (int i = 0; i < userid.length(); i++) {
+         if (Character.isTitleCase(userid.charAt(i))) {
+          st+=Character.toLowerCase(userid.charAt(i));
+         }
+         else if (Character.isUpperCase(userid.charAt(i))) {
+          st+= Character.toLowerCase(userid.charAt(i));
+         }
+         else if (Character.isLowerCase(userid.charAt(i))) {
+            st+=Character.toUpperCase(userid.charAt(i));
+         }
+         else{
+             st+=userid.charAt(i);
+         }
+      }
+      System.out.println("user id is : "+st);
+}
+}
